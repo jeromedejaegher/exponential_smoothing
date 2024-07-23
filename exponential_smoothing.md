@@ -1,5 +1,5 @@
-# Exponential smoothing adapted to IoT flows
-*Jerome Dejaegher*
+# Adapting Exponential smoothing to IoT flows
+*Jerome Dejaegher*, July 2024
 
 ## 1. Exponential smoothing ##
 
@@ -20,7 +20,7 @@ As a consequence, this smoothing has two major drawbacks :
 - where alpha is high, $ S(x_n) $ is equal to $ x_n $ (no memory, no smoothing)
 - where alpha is low, $ S(x_n) $ is nearly constant (no update).
 
-With classical time serie, these drawbacks are not an issue, because why would you choose one of these extrems values ?
+With classical time serie, these drawbacks are not an issue, because why would someone choose one of these extrems values ?
 
 However, with the time series obtained from IoT, time stamps are not uniformly distributed, and the formula for exponential smoothing are now defined as : 
 
@@ -57,7 +57,7 @@ $ Z(0) = 1 $
 Now, when $ \Delta t_n $ is close to 0, there is no more a discard of the new value, which is weighted as $\frac {1}{1 + Z(t_{n-1})}$.
 
 ![img/plot_10000_slow.png](img/plot_10000_slow.png)
-![img/plot_100000_fast.png](img/plot_100000_fast.png)
+![img/plot_1000_fast.png](img/plot_1000_fast.png)
 
 figure 1 : examples of how exponential smoothing is not updated when $ \Delta t_n $ is close to 0. The modified formula struggle to follow the trend, but is significantly updated from the initial [-1, 1] range.
 
